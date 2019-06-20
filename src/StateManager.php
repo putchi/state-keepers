@@ -63,7 +63,7 @@ class StateManager {
             }
         } catch (ModelNotFoundException $mnfe) {
             $errCode       = 404;
-            $errMsg        = trans('state::generic.ERROR_MESSAGE_CODE_NUMBER_404');
+            $errMsg        = trans('state.generic.ERROR_MESSAGE_CODE_NUMBER_404');
             $mnfeException = new ProjectException($mnfe->getMessage(), $errType, $errCode, [
                 'model' => $mnfe->getModel(),
                 'ids'   => $mnfe->getIds()
@@ -82,38 +82,38 @@ class StateManager {
                 case 1364:
                 case 1048:
                     // Integrity constraint violation
-                    $errMsg = trans('state::mysql.INTEGRITY_CONSTRAINT_VIOLATION', ['msg' => $qe->errorInfo[2]]);
+                    $errMsg = trans('state.mysql.INTEGRITY_CONSTRAINT_VIOLATION', ['msg' => $qe->errorInfo[2]]);
                     break;
                 case 1217:
                 case 1451:
                     // Cannot delete or update a child row: a foreign key constraint fails
-                    $errMsg = trans('state::mysql.CANNOT_DELETE_FOREIGN_KEY_CONSTRAINT_FAILS');
+                    $errMsg = trans('state.mysql.CANNOT_DELETE_FOREIGN_KEY_CONSTRAINT_FAILS');
                     break;
                 case 1216:
                 case 1452:
                     // Cannot add or update a child row: a foreign key constraint fails
-                    $errMsg = trans('state::mysql.CANNOT_ADD_FOREIGN_KEY_CONSTRAINT_FAILS');
+                    $errMsg = trans('state.mysql.CANNOT_ADD_FOREIGN_KEY_CONSTRAINT_FAILS');
                     break;
                 case 1062:
                 case 1586:
                     // Integrity constraint violation: Duplicate entry
                     if (preg_match("/^[^']*'([^']*)'[^']*'([^']*)'$/", $qe->errorInfo[2], $matches)) {
                         // Message in the form of: "Duplicate entry '%s' for key '%s'"
-                        $errMsg = trans('state::mysql.DUPLICATE_ENTRY', ['value' => $matches[1], 'field' => $matches[2]]);
+                        $errMsg = trans('state.mysql.DUPLICATE_ENTRY', ['value' => $matches[1], 'field' => $matches[2]]);
                     } else {
-                        $errMsg = trans('state::generic.ERROR_MESSAGE_CODE_NUMBER_409');
+                        $errMsg = trans('state.generic.ERROR_MESSAGE_CODE_NUMBER_409');
                     }
                     break;
                 case 1406:
                     // Data too long for column
                     if (preg_match("/[^column\s']?(\b[\w]*\b)['].*$/", $qe->errorInfo[2], $matches)) {
-                        $errMsg = trans('state::mysql.DATA_TOO_LONG_FOR_COLUMN', ['field' => $matches[1]]);
+                        $errMsg = trans('state.mysql.DATA_TOO_LONG_FOR_COLUMN', ['field' => $matches[1]]);
                     } else {
-                        $errMsg = trans('state::generic.ERROR_MESSAGE_CODE_NUMBER_500');
+                        $errMsg = trans('state.generic.ERROR_MESSAGE_CODE_NUMBER_500');
                     }
                     break;
                 default:
-                    $errMsg = trans('state::generic.ERROR_MESSAGE_CODE_NUMBER_503');
+                    $errMsg = trans('state.generic.ERROR_MESSAGE_CODE_NUMBER_503');
                     break;
             }
             $qeException = new ProjectException($qe->getMessage(), $errType, $errCode, null, $qe);
@@ -127,7 +127,7 @@ class StateManager {
             }
         } catch (GuzzleException $ge) {
             $errCode     = 500;
-            $errMsg      = trans('state::generic.ERROR_MESSAGE_CODE_NUMBER_500');
+            $errMsg      = trans('state.generic.ERROR_MESSAGE_CODE_NUMBER_500');
             $geException = new ProjectException($ge->getMessage(), $errType, $errCode, null, $ge);
             $msg         = self::constructMessage($geException, $errMsg, $errCode);
 
@@ -138,7 +138,7 @@ class StateManager {
             }
         } catch (ErrorException $ee) {
             $errCode     = 500;
-            $errMsg      = trans('state::generic.ERROR_MESSAGE_CODE_NUMBER_500');
+            $errMsg      = trans('state.generic.ERROR_MESSAGE_CODE_NUMBER_500');
             $eeException = new ProjectException($ee->getMessage(), $errType, $errCode, null, $ee);
             $msg         = self::constructMessage($eeException, $errMsg, $errCode);
 
@@ -149,7 +149,7 @@ class StateManager {
             }
         } catch (Exception $e) {
             $errCode    = 500;
-            $errMsg     = trans('state::generic.ERROR_MESSAGE_CODE_NUMBER_500');
+            $errMsg     = trans('state.generic.ERROR_MESSAGE_CODE_NUMBER_500');
             $eException = new ProjectException($e->getMessage(), $errType, $errCode, null, $e);
             $msg        = self::constructMessage($eException, $errMsg, $errCode);
 
@@ -160,7 +160,7 @@ class StateManager {
             }
         } catch (Throwable $e) {
             $errCode    = 500;
-            $errMsg     = trans('state::generic.ERROR_MESSAGE_CODE_NUMBER_500');
+            $errMsg     = trans('state.generic.ERROR_MESSAGE_CODE_NUMBER_500');
             $eException = new ProjectException($e->getMessage(), $errType, $errCode, null, $e);
             $msg        = self::constructMessage($eException, $errMsg, $errCode);
 

@@ -12,15 +12,15 @@ class StateKeepersServiceProvider extends ServiceProvider {
      * @return void
      */
     public function boot() {
-        $this->loadTranslationsFrom(__DIR__.'/resources/lang/en', 'state');
+        $this->loadTranslationsFrom(__DIR__.'/resources/lang', 'state');
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__ . '/config/state.php' => config_path('state.php'),
             ], 'config');
             $this->publishes([
-                __DIR__.'/resources/lang/en' => resource_path('lang/en/state'),
-            ]);
+                __DIR__.'/resources/lang' => resource_path('lang'),
+            ], 'resources');
         }
     }
 
@@ -30,6 +30,8 @@ class StateKeepersServiceProvider extends ServiceProvider {
      * @return void
      */
     public function register() {
-        //
+        $this->mergeConfigFrom(
+            __DIR__.'/config/state.php', 'state'
+        );
     }
 }
