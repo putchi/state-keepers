@@ -1,0 +1,42 @@
+{
+  "name": "putchi/state-keepers",
+  "description": "State keepers for Laravel application",
+  "keywords": [
+    "laravel",
+    "transactions",
+    "transactional",
+    "state",
+    "state-keeper",
+    "keeper",
+    "keepers",
+    "guard"
+  ],
+  "require": {
+    "php": ">=7.0",
+    "guzzlehttp/guzzle": "6.x",
+    "laravel/framework": "5.7.*"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Alex Rabinovich",
+      "email": "4alexr@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Putchi\\StateKeepers\\": "src/"
+    }
+  },
+  "minimum-stability": "dev",
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Putchi\\StateKeepers\\StateKeepersServiceProvider"
+      ],
+      "aliases": {
+        "StateManager": "Putchi\\StateKeepers\\StateManager"
+      }
+    }
+  }
+}
