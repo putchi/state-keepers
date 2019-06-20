@@ -28,7 +28,7 @@
       "Putchi\\StateKeepers\\": "src/"
     }
   },
-  "minimum-stability": "stable",
+  "minimum-stability": "dev",
   "extra": {
     "laravel": {
       "providers": [
