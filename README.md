@@ -10,9 +10,8 @@ This package is an extension to Laravel and will work only on laravel 5.7 and up
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+Clone or [Download](https://github.com/putchi/state-keepers/archive/master.zip) this [repo](https://github.com/putchi/state-keepers) 
+or install it by using [composer](https://getcomposer.org/) bellow:
 
 ```
 composer require putchi/state-keepers
