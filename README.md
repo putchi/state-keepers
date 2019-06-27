@@ -21,7 +21,7 @@ You may publish project files (config, assets, translations, etc...) into your o
 by running the bellow command:
 
 ```
-php artisan vendor:publish --provider=StateKeepersServiceProvider
+php artisan vendor:publish --provider="StateKeepersServiceProvider"
 ```
 
 Also you may need to clear config cache by running the following command:
