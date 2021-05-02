@@ -12,7 +12,7 @@
     "guard"
   ],
   "require": {
-    "php": ">=^8.0",
+    "php": ">=8.0.0",
     "guzzlehttp/guzzle": "^7.0",
     "laravel/framework": "^8.0"
   },
