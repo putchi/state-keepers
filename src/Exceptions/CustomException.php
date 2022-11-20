@@ -10,35 +10,15 @@ abstract class CustomException extends Exception {
     /**
      * @var string
      */
-    protected $_type;
+    protected string $_type;
     /**
      * @var array
      */
-    protected $_data;
-    /**
-     * Exception message
-     * @var string
-     */
-    protected $message;
-    /**
-     * User-defined exception code
-     * @var int
-     */
-    protected $code;
-    /**
-     * Source filename of exception
-     * @var string
-     */
-    protected $file;
-    /**
-     * Source line of exception
-     * @var int
-     */
-    protected $line;
+    protected array $_data;
     /**
      * @var string[]
      */
-    static protected $errorTypes = [
+    static protected array $errorTypes = [
         'emergency', // #0
         'alert',     // #1
         'critical',  // #2
